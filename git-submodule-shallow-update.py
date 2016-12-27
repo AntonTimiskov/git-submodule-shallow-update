@@ -53,7 +53,7 @@ def main(repoPath):
 
     def readSubmodules():
         gitmodules_text = open(path.join(repoPath,'.gitmodules'), 'r').read()
-        gitmodules_text = re.sub(r'\t+', '', gitmodules_text, re.MULTILINE)
+        gitmodules_text = re.sub(r'\t+', '', gitmodules_text, count=0, flags=re.MULTILINE)
         f, fname = tempfile.mkstemp(text=True)
         open(fname, 'w').write(gitmodules_text)
         Conf = ConfigParser.ConfigParser()
